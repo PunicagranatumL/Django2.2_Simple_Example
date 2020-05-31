@@ -1,0 +1,29 @@
+{% extends 'entries/base.html' %}
+
+{% load staticfiles %}
+
+{% block title%}Blog Home Page {% endblock %}
+
+{% block content%}
+
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-8">
+        <br>
+        <br>
+        <br>
+        <br>
+          <h1>You have successfully logged out.</h1>
+        <a href="{% url 'entries:blog-home' %}" style="font-size:40px;">Back to Home</a>
+        <br>
+        <br>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
+
+

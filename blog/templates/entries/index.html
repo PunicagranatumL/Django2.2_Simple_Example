@@ -1,0 +1,108 @@
+{% extends 'entries/base.html' %}
+
+{% load staticfiles %}
+
+{% block title%}Blog Home Page {% endblock %}
+
+{% block content%}
+
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <div class="row">
+
+      <!-- Blog Entries Column -->
+      <div class="col-md-8">
+        <br>
+        <br>
+        <br>
+        <h1 class="my-4">
+          <a href="{% url 'entries:create_entry' %}">Create Blog</a>
+          <small><a href="{% url 'users:register' %}">Create Account</a></small>
+          <a href="{% url 'users:login' %}">Login</a>
+          <a href="{% url 'users:logout' %}">Logout</a>
+        </h1>
+
+        <!-- Blog Post -->
+        {% for entry in blogentries %}
+        <div class="card mb-4">
+          <div class="card-body">
+            <h2 class="card-title">{{ entry.entry_title  }}</h2>
+            <p class="card-text">{{ entry.entry_text | truncatechars:100 }}</p>
+            <a href="{% url 'entries:entry-detail' entry.pk %}" class="btn btn-primary">Read More &rarr;</a>
+          </div>
+          <div class="card-footer text-muted">
+            {{ entry.entry_date }}
+            <a href="#">{{ entry.entry_author }}</a>
+          </div>
+        </div>
+        {% endfor %}
+
+
+
+        <!-- Pagination -->
+        {% if is_paginated %}
+        <ul class="pagination justify-content-center mb-4">
+          {% if page_obj.has_previous %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous age</a>
+          </li>
+          {% endif %}
+
+          {% if page_obj.has_next %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next Page</a>
+          </li>
+          {% endif %}
+        </ul>
+        {% endif %}
+
+      </div>
+
+      <!-- Sidebar Widgets Column -->
+
+      <div class="col-md-4">
+        <br>
+      <br>
+      <br>
+      <br>
+      <br>
+
+
+        <!-- Search Widget -->
+        <div class="card my-4">
+          <h5 class="card-header">Search</h5>
+          <div class="card-body">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search for...">
+              <span class="input-group-btn">
+                <button class="btn btn-secondary" type="button">Go!</button>
+              </span>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Side Widget -->
+        <div class="card my-4">
+          <h5 class="card-header">Login Information</h5>
+          <div class="card-body">
+            <p><strong>Username:</strong> {{ user.username }}</p>
+            <p><strong>Useremail:</strong> {{ user.email }}</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+
+{% endblock %}
+
+

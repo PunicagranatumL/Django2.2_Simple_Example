@@ -1,0 +1,39 @@
+{% extends 'entries/base.html' %}
+
+{% load staticfiles %}
+
+{% block title%}Blog Home Page {% endblock %}
+
+{% block content%}
+
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-8">
+        <br>
+        <br>
+        <br>
+        <br>
+        <a href="{% url 'entries:blog-home' %}" style="font-size:40px;">Back to Home</a>
+        <br>
+        <br>
+        <div class="card mb-4">
+          <div class="card-body">
+            <h2 class="card-title">{{ object.entry_title  }}</h2>
+            <p class="card-text">{{ object.entry_text  }}</p>
+
+          </div>
+          <div class="card-footer text-muted">
+            Posted os {{ object.entry_date }}
+            <a >{{ object.entry_author }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
+
+
