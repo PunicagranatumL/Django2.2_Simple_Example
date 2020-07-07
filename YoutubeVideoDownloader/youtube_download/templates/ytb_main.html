@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %} 首页 {% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <br><br>
+    <center><h1>Enter youtube video link Here</h1></center>
+    <br>
+    <form action="{% url 'youtube_download:ytb_download' %}" method="GET">
+        <div class="form-group">
+            <label>Enter Link</label>
+            <input name="url" type="text" class="form-control" id="link" aria-describedby="emailHelp" placeholder="Entre Your Selected Youtube Video Link">
+        </div>
+    <br>
+    <center>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </center>
+    </form>
+</div>
+
+{% endblock %}

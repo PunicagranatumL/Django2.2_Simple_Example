@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}下载{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <br>
+    <center><h1>Your video</h1></center>
+    <br>
+    <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src={{ embed_link }} allowfullscreen></iframe>
+      </div>
+    <br><br>
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th>Select resolution</th>
+            <th>Download</th>
+          </tr>
+        </thead>
+        {% for i in rsl %}
+        <tbody>
+          <tr>
+            <td>{{ i }}</td>
+            <td>
+                <form action="{% url 'youtube_download:download_complete' i %}" method="POST" class="post-form">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger" value="DOWNLOAD">Download</button>
+                </form>
+            </td>
+          </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}
