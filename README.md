@@ -11,3 +11,7 @@
 > 在youtube看到的视频教程，自己跟着教程完全重复了一遍，非常好的Django入门学习材料，涉及到路由（urls）模板（templates)视图（views)没有涉及到模型，前端用了bootstrap。
 链接https://www.youtube.com/watch?v=fYmFUVKMcVA&t=432s 
 https://www.youtube.com/watch?v=-GmIat6rWiw&t=13s
+
+### myproc
+> 根据fasta文件的id提取想要的序列
+![image.png](https://upload-images.jianshu.io/upload_images/6857799-d4aedbefbcab507f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
